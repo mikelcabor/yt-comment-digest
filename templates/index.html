@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+  <title>OpenAI Quickstart</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_path_for('static', path='video.png') }}"
+  />
+  <link rel="stylesheet" href="{{ url_path_for('static', path='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{ url_path_for('static', path='video.png') }}" class="icon" />
+  <h3>Prompt a video</h3>
+  <form action="/" method="post">
+    <input type="text" name="videoURL" placeholder="Enter a video URL" required />
+    <input type="submit" value="What does people think?" />
+  </form>
+  {% if result %}
+  <div class="result">{{ result }}</div>
+  {% endif %}
+</body>
