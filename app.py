@@ -1,24 +1,24 @@
 import os
 
 import openai
-from fastapi import FastAPI, requests, Depends, Request, Form 
-from fastapi.staticfiles import StaticFiles
 import urllib.request, json
 import starlette.status as status
 
+from fastapi import FastAPI, requests, Depends, Request, Form 
+from fastapi.staticfiles import StaticFiles
+from utils.utils import Utils
 from starlette.responses import RedirectResponse
 from starlette.templating import Jinja2Templates
 
-
+openaiKey = os.getenv("OPENAI_API_KEY")
 templates = Jinja2Templates(directory="templates")
-
 app = FastAPI()
 
 @app.on_event("startup")
 async def startup_event():
     # Register url_path_for function with Jinja2
     templates.env.globals["url_path_for"] = app.url_path_for
-    openai.api_key = "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"
+    openai.api_key = openaiKey
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -45,8 +45,9 @@ def home(videoURL: str = Form()):
 def show_result(request: Request, result: str):
     return templates.TemplateResponse("index.html", {"request": request, "result": result})
 
-def get_youtube_comments(videoURL):
-    url = "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId={}&key=AIzaSyApSDd8sguN8fmkFfPguz98DQIKx4nZ7sg".format(videoURL)
+def get_youtube_comments(videoURL: str):
+    videoId = Utils.getIdFromUrl(videoURL)
+    url = "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId={0}&key={1}".format(videoId, os.getenv("YT_API_KEY"))
     response = urllib.request.urlopen(url)
     if response.status == 200:
         data = response.read()
