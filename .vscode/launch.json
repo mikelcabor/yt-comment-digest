@@ -12,7 +12,8 @@
             "args": [
                 "app:app",
                 "--port",
-                "8080"
+                "8080",
+                "--reload"
             ],
             "jinja": true,
             "justMyCode": true

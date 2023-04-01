@@ -1,0 +1,29 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #10a37f;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none; 
+  }
+  
+  nav li {
+    padding-left: 1rem;
+  }
+  nav a {
+    text-decoration: none;
+    color: #fafcff
+  }
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    font-family: Arial, Tahoma, Serif;
+    color: #f7fcff;
+  }
+    
