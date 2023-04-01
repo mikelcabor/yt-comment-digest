@@ -2,11 +2,10 @@ import os
 
 import openai
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from starlette.templating import Jinja2Templates
 from myapp.routes import about, home
-from myapp.utils.utils import Utils
 
 # Define the API key
 openaiKey = os.getenv("OPENAI_API_KEY")

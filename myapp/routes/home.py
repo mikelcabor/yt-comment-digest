@@ -2,7 +2,7 @@ import base64
 import pickle
 import openai
 import starlette.status as status
-from fastapi import APIRouter, FastAPI, Request, Form 
+from fastapi import APIRouter, Request, Form 
 from myapp.utils.utils import Utils
 from starlette.responses import RedirectResponse
 from fastapi.templating import Jinja2Templates
