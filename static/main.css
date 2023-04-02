@@ -1,3 +1,11 @@
+:root {
+  --background: #1A1B25;
+  --background2: #1e1e1e;
+  --background-text: #ffffff;
+  --secondary-color: #9db0fc;
+  --secondary-text: #000000;
+  --output-text: #1A1B25;
+}
 @font-face {
     font-family: "ColfaxAI";
     src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
@@ -13,11 +21,16 @@
     font-weight: bold;
     font-style: normal;
   }
+  html{
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(var(--background), var(--background2));
+  }
   main,
   input {
     font-size: 16px;
     line-height: 24px;
-    color: #353740;
+    color: var(--background-text);
     font-family: "ColfaxAI", Helvetica, sans-serif;
   }
   main {
@@ -33,7 +46,7 @@
     font-size: 32px;
     line-height: 40px;
     font-weight: bold;
-    color: #202123;
+    color: var(--background-text);
     margin: 16px 0 40px;
   }
   form {
@@ -43,7 +56,7 @@
   }
   input[type="text"] {
     padding: 12px 16px;
-    border: 1px solid #10a37f;
+    border: 1px solid var(--secondary-color);
     border-radius: 4px;
     margin-bottom: 24px;
   }
@@ -53,17 +66,31 @@
   }
   input[type="submit"] {
     padding: 12px 0;
-    color: #fff;
-    background-color: #10a37f;
+    color: var(--secondary-text);
+    background-color: var(--secondary-color);
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     text-align: center;
-    cursor: pointer;
+    transition: .35s all ease;
   }
-  .result {
+  .result{
     font-weight: bold;
     margin-top: 40px;
     margin-left: 10%;
     margin-right: 10%;
+    padding-top: 0px;
+    padding: 40px;
+    box-shadow: 0px 0px 5px 5px #cce7f765;
+    background-color: var(--background-text);
+    color: var(--output-text);
   }
-  
+.result-title{
+    color: var(--output-text);
+    margin: 0px;
+  }
+
+  input[type="submit"]:hover {
+    transform: scale(1.1);
+    background-color: #f7cce8;
+  }
