@@ -33,7 +33,7 @@ class Utils():
         return 'Error: Unable to retrieve data from API'
 
     def generate_prompt(comments):
-        prompt = "what is the general impression on the comments in this video?. Prompt the important points about the comments. At the end prompt the best and worst comment. Comments: ".join(comments)
+        prompt = "What is the general impression on the comments in this video? Prompt the important points about the comments Show the best and worst comment Comments: ".join(comments)
         return prompt
     
     def setup_templates(app: FastAPI):
